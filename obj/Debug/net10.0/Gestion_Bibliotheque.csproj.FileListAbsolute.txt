@@ -1,0 +1,16 @@
+C:\Users\Asus\source\repos\Gestion_Bibliotheque\Gestion_Bibliotheque\bin\Debug\net10.0\Gestion_Bibliotheque.exe
+C:\Users\Asus\source\repos\Gestion_Bibliotheque\Gestion_Bibliotheque\bin\Debug\net10.0\Gestion_Bibliotheque.deps.json
+C:\Users\Asus\source\repos\Gestion_Bibliotheque\Gestion_Bibliotheque\bin\Debug\net10.0\Gestion_Bibliotheque.runtimeconfig.json
+C:\Users\Asus\source\repos\Gestion_Bibliotheque\Gestion_Bibliotheque\bin\Debug\net10.0\Gestion_Bibliotheque.runtimeconfig.dev.json
+C:\Users\Asus\source\repos\Gestion_Bibliotheque\Gestion_Bibliotheque\bin\Debug\net10.0\Gestion_Bibliotheque.dll
+C:\Users\Asus\source\repos\Gestion_Bibliotheque\Gestion_Bibliotheque\bin\Debug\net10.0\Gestion_Bibliotheque.pdb
+C:\Users\Asus\source\repos\Gestion_Bibliotheque\Gestion_Bibliotheque\obj\Debug\net10.0\Gestion_Bibliotheque.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Asus\source\repos\Gestion_Bibliotheque\Gestion_Bibliotheque\obj\Debug\net10.0\Gestion_Bibliotheque.AssemblyInfoInputs.cache
+C:\Users\Asus\source\repos\Gestion_Bibliotheque\Gestion_Bibliotheque\obj\Debug\net10.0\Gestion_Bibliotheque.AssemblyInfo.cs
+C:\Users\Asus\source\repos\Gestion_Bibliotheque\Gestion_Bibliotheque\obj\Debug\net10.0\Gestion_Bibliotheque.csproj.CoreCompileInputs.cache
+C:\Users\Asus\source\repos\Gestion_Bibliotheque\Gestion_Bibliotheque\obj\Debug\net10.0\Gestion_Bibliotheque.dll
+C:\Users\Asus\source\repos\Gestion_Bibliotheque\Gestion_Bibliotheque\obj\Debug\net10.0\refint\Gestion_Bibliotheque.dll
+C:\Users\Asus\source\repos\Gestion_Bibliotheque\Gestion_Bibliotheque\obj\Debug\net10.0\Gestion_Bibliotheque.pdb
+C:\Users\Asus\source\repos\Gestion_Bibliotheque\Gestion_Bibliotheque\obj\Debug\net10.0\Gestion_Bibliotheque.genruntimeconfig.cache
+C:\Users\Asus\source\repos\Gestion_Bibliotheque\Gestion_Bibliotheque\obj\Debug\net10.0\ref\Gestion_Bibliotheque.dll
+C:\Users\Asus\source\repos\Gestion_Bibliotheque\Gestion_Bibliotheque\obj\Debug\net10.0\Gestion_.5F9D4569.Up2Date
