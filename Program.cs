@@ -28,7 +28,8 @@ namespace Gestion_Bibliotheque
                 Console.WriteLine("13. Trier les livres par année de publication");
                 Console.WriteLine("14. Sauvegarder");
                 Console.WriteLine("15. Charger ");
-                Console.WriteLine("16. Quitter ");
+                Console.WriteLine("16. Afficher les livres d'un auteur spécifique ");
+                Console.WriteLine("17. Quitter ");
                 Console.WriteLine("Veuillez choisir une option : ");
                 string choice = Console.ReadLine();
                 switch (choice)
@@ -224,7 +225,17 @@ namespace Gestion_Bibliotheque
                     case "15":
                         bibliotheque.load();
                         break;
-                    case "16":
+                        case "16":
+                        if (bibliotheque.book.Count == 0)
+                        {
+                            Console.WriteLine("Aucun livre n'est disponible dans la bibliothèque.");
+                            break;
+                        }
+                        Console.WriteLine("\nEntrez le nom de l'auteur dont vous souhaitez afficher les livres : ");
+                        string authorName = Console.ReadLine();
+                        bibliotheque.getBooksByAuthor(authorName);
+                        break;
+                    case "17":
                         exit = false;
                         break;
                     default:

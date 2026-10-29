@@ -14,13 +14,15 @@ namespace Gestion_Bibliotheque
         }
         public void displayBooks()
         {
-            if (book.Count == 0) { 
+            if (book.Count == 0)
+            {
                 Console.WriteLine(" \n Aucun livre disponible. \n");
                 return;
             }
             Console.WriteLine("La liste des livres disponibles : \n");
             foreach (Livre livre in book)
-            {   Console.WriteLine("\n================================\n");
+            {
+                Console.WriteLine("\n================================\n");
                 Console.WriteLine($" -ISBN: {livre.isbn} \n -Titre: {livre.title} \n -Auteur: {livre.autor}\n -Année de publication: {livre.year_publication}\n -Disponible: {livre.is_available} \n");
                 Console.WriteLine("\n================================\n");
             }
@@ -66,7 +68,7 @@ namespace Gestion_Bibliotheque
         }
         public void updateBook(int isbn, string titre, string auteur, string annee)
         {
-            foreach(Livre livre in book)
+            foreach (Livre livre in book)
             {
                 if (livre.isbn == isbn)
                 {
@@ -75,7 +77,7 @@ namespace Gestion_Bibliotheque
                     livre.year_publication = annee;
                     Console.WriteLine("\nLe livre a été bien modifié \n");
                     return;
-                    
+
                 }
                 else
                 {
@@ -85,7 +87,7 @@ namespace Gestion_Bibliotheque
         }
         public void deleteBook(int isbn)
         {
-            foreach(Livre livre in book)
+            foreach (Livre livre in book)
             {
                 if (livre.isbn == isbn)
                 {
@@ -115,16 +117,16 @@ namespace Gestion_Bibliotheque
                     else
                     {
                         Console.WriteLine("Désolé mais quelqun à déja emprunter cette livre\n");
-                        
+
                     }
                     return;
 
                 }
                 else
                 {
-                      Console.WriteLine("Le livre avec ISBN " + isbn + " n'est pas trouvé.\n");
+                    Console.WriteLine("Le livre avec ISBN " + isbn + " n'est pas trouvé.\n");
                 }
-               
+
             }
         }
         public void returnBook(int isbn)
@@ -136,7 +138,7 @@ namespace Gestion_Bibliotheque
                     livre.is_available = true;
                     Console.WriteLine("Le livre a été bien retourné\n");
                     return;
-                  
+
                 }
                 else
                 {
@@ -146,7 +148,7 @@ namespace Gestion_Bibliotheque
         }
         public void bookAvailable()
         {
-            if(book.Count == 0)
+            if (book.Count == 0)
             {
                 Console.WriteLine("Aucun livre n'est disponible dans la bibliothèque.");
                 return;
@@ -154,7 +156,7 @@ namespace Gestion_Bibliotheque
             Console.WriteLine("\nLes livres disponibles sont : \n");
             foreach (Livre livre in book)
             {
-                if(livre.is_available == true)
+                if (livre.is_available == true)
                 {
                     Console.WriteLine($"- Titre: '{livre.title}'\n  ");
                 }
@@ -175,7 +177,8 @@ namespace Gestion_Bibliotheque
             Console.WriteLine("Aucun livre correspondant \n");
         }
 
-        public List<Livre> sortbytitle() {
+        public List<Livre> sortbytitle()
+        {
 
             return book.OrderBy(l => l.title).ToList();
 
@@ -229,6 +232,31 @@ namespace Gestion_Bibliotheque
             else
             {
                 Console.WriteLine("Le fichier de sauvegarde n'existe pas. Aucune donnée n'a été chargée.");
+            }
+        }
+
+
+        public void getBooksByAuthor(string author)
+        {
+            List<Livre> booksByAuthor = new List<Livre>();
+            foreach (Livre livre in book)
+            {
+                if (livre.autor.ToLower() == author.ToLower())
+                {
+                    booksByAuthor.Add(livre);
+                }
+            }
+            if (booksByAuthor.Count > 0)
+            {
+                Console.WriteLine($"Les livres de l'auteur '{author}' sont :");
+                foreach (Livre livre in booksByAuthor)
+                {
+                    Console.WriteLine($"- ISBN: {livre.isbn}, Titre: {livre.title}, Année de publication: {livre.year_publication}, Disponible: {livre.is_available}");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Aucun livre trouvé pour l'auteur '{author}'.");
             }
         }
     }
