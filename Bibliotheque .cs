@@ -259,5 +259,29 @@ namespace Gestion_Bibliotheque
                 Console.WriteLine($"Aucun livre trouvé pour l'auteur '{author}'.");
             }
         }
+
+        public void getBooksByYear(string year)
+        {
+            List<Livre> booksByYear = new List<Livre>();
+            foreach (Livre livre in book)
+            {
+                if (livre.year_publication == year)
+                {
+                    booksByYear.Add(livre);
+                }
+            }
+            if (booksByYear.Count > 0)
+            {
+                Console.WriteLine($"Les livres de l'année '{year}' sont :");
+                foreach (Livre livre in booksByYear)
+                {
+                    Console.WriteLine($"- ISBN: {livre.isbn}, Titre: {livre.title}, Auteur: {livre.autor}, Disponible: {livre.is_available}");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Aucun livre trouvé pour l'année '{year}'.");
+            }
+        }
     }
 }

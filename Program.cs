@@ -29,7 +29,8 @@ namespace Gestion_Bibliotheque
                 Console.WriteLine("14. Sauvegarder");
                 Console.WriteLine("15. Charger ");
                 Console.WriteLine("16. Afficher les livres d'un auteur spécifique ");
-                Console.WriteLine("17. Quitter ");
+                Console.WriteLine("17. Afficher les livres d'un année spécifique ");
+                Console.WriteLine("18. Quitter ");
                 Console.WriteLine("Veuillez choisir une option : ");
                 string choice = Console.ReadLine();
                 switch (choice)
@@ -235,11 +236,21 @@ namespace Gestion_Bibliotheque
                         string authorName = Console.ReadLine();
                         bibliotheque.getBooksByAuthor(authorName);
                         break;
-                    case "17":
+                    case "18":
                         exit = false;
                         break;
+                    case "17":
+                        if (bibliotheque.book.Count == 0)
+                        {
+                            Console.WriteLine("Aucun livre n'est disponible dans la bibliothèque.");
+                            break;
+                        }
+                        Console.WriteLine("\nEntrez l'année de publication dont vous souhaitez afficher les livres : ");
+                        string year = Console.ReadLine();
+                        bibliotheque.getBooksByYear(year);
+                        break;
                     default:
-                        Console.WriteLine("Option invalide. Veuillez choisir un nombre entre 1 et 8.");
+                        Console.WriteLine("Option invalide. Veuillez choisir un nombre entre 1 et 18.");
                         break;
                 }             
             }
