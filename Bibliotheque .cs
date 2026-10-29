@@ -26,21 +26,27 @@ namespace Gestion_Bibliotheque
             }
         }
 
-        public void searchISBN(int isbn) {
-            foreach (Livre livre in book)
+        public void searchISBN(int isbn)
+        {
+            try
             {
-                if (livre.isbn == isbn)
+                foreach (Livre livre in book)
                 {
-                    Console.WriteLine("Le livre avec ISBN " + isbn + " est trouvé :\n");
-                    Console.WriteLine($" -Titre: {livre.title} \n -Auteur: {livre.autor}\n -Année de publication: {livre.year_publication}\n -Disponible: {livre.is_available} \n");
-                    return;
-                }
-                else
-                {
-                    Console.WriteLine("Le livre avec ISBN n'est pas trouvé.\n");
+                    if (livre.isbn == isbn)
+                    {
+                        Console.WriteLine("Le livre avec ISBN " + isbn + " est trouvé :\n");
+                        Console.WriteLine($" -Titre: {livre.title} \n -Auteur: {livre.autor}\n -Année de publication: {livre.year_publication}\n -Disponible: {livre.is_available} \n");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Le livre avec ISBN n'est pas trouvé.\n");
+                    }
                 }
             }
-            
+            catch (Exception ex)
+            {
+                Console.WriteLine("Une erreur lors de la recherche du livre : " + ex.Message);
+            }
         }
         public void searchTitle(string title)
         {

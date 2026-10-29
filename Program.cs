@@ -34,16 +34,28 @@ namespace Gestion_Bibliotheque
                 switch (choice)
                 {
                     case "1":
-                        Console.WriteLine("Entrez le titre du livre : ");
-                        string titre = Console.ReadLine();
-                        Console.WriteLine("Entrez l'auteur du livre : ");
-                        string auteur = Console.ReadLine();
-                        Console.WriteLine("Entrez l'année de publication : ");
-                        string annee = Console.ReadLine();
-                        Console.WriteLine("Entrez l'ISBN du livre : ");
-                        int isbn = int.Parse(Console.ReadLine());
-                        Livre livres = new Livre(isbn,titre, auteur, annee);
-                        bibliotheque.addBook(livres);
+                        try
+                        {
+                            Console.WriteLine("Entrez le titre du livre : ");
+                            string titre = Console.ReadLine();
+                            Console.WriteLine("Entrez l'auteur du livre : ");
+                            string auteur = Console.ReadLine();
+                            Console.WriteLine("Entrez l'année de publication : ");
+                            string annee = Console.ReadLine();
+                            Console.WriteLine("Entrez l'ISBN du livre : ");
+                            int isbn = int.Parse(Console.ReadLine());
+                            if(bibliotheque.book.Any(b => b.isbn == isbn))
+                            {
+                                Console.WriteLine("Un livre avec cet ISBN existe déjà. Veuillez entrer un ISBN unique.");
+                                break;
+                            }
+                            Livre livres = new Livre(isbn, titre, auteur, annee);
+                            bibliotheque.addBook(livres);
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("Veuillez entrer un ISBN valide (un nombre entier).");
+                        }
                         break;
                     case "2":
                         bibliotheque.displayBooks();
@@ -55,8 +67,16 @@ namespace Gestion_Bibliotheque
                             break;
                         }
                         Console.WriteLine("Entrez l'ISBN du livre à rechercher : ");
-                        int isbnRecherche = int.Parse(Console.ReadLine());
-                        bibliotheque.searchISBN(isbnRecherche);
+                        try
+                        {
+                            int isbnRecherche = int.Parse(Console.ReadLine());
+                            bibliotheque.searchISBN(isbnRecherche);
+                            
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("Veuillez entrer un ISBN valide (un nombre entier).");
+                        }
                         break;
                     case "4":
                         if(bibliotheque.book.Count == 0)
@@ -74,15 +94,22 @@ namespace Gestion_Bibliotheque
                             Console.WriteLine("Aucun livre n'est disponible dans la bibliothèque.");
                             break;
                         }
-                        Console.WriteLine("Entrez l'ISBN du livre à modifier : ");
-                        int isbnModif = int.Parse(Console.ReadLine());
-                        Console.WriteLine("Entrez le nouveau titre du livre : ");
-                        string nouveauTitre = Console.ReadLine();
-                        Console.WriteLine("Entrez le nouvel auteur du livre : ");
-                        string nouvelAuteur = Console.ReadLine();
-                        Console.WriteLine("Entrez la nouvelle année de publication : ");
-                        string nouvelleAnnee = Console.ReadLine();
-                        bibliotheque.updateBook(isbnModif, nouveauTitre, nouvelAuteur, nouvelleAnnee);
+                        try
+                        {
+                            Console.WriteLine("Entrez l'ISBN du livre à modifier : ");
+                            int isbnModif = int.Parse(Console.ReadLine());
+                            Console.WriteLine("Entrez le nouveau titre du livre : ");
+                            string nouveauTitre = Console.ReadLine();
+                            Console.WriteLine("Entrez le nouvel auteur du livre : ");
+                            string nouvelAuteur = Console.ReadLine();
+                            Console.WriteLine("Entrez la nouvelle année de publication : ");
+                            string nouvelleAnnee = Console.ReadLine();
+                            bibliotheque.updateBook(isbnModif, nouveauTitre, nouvelAuteur, nouvelleAnnee);
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("Veuillez entrer un ISBN valide (un nombre entier).");
+                        }
                         break;
                     case "6":
                         if (bibliotheque.book.Count == 0)
@@ -90,9 +117,16 @@ namespace Gestion_Bibliotheque
                             Console.WriteLine("Aucun livre n'est disponible dans la bibliothèque.");
                             break;
                         }
-                        Console.WriteLine("\nEntrez l'ISBN du livre à supprimer : ");
-                        int isbnSuppression = int.Parse(Console.ReadLine());
-                        bibliotheque.deleteBook(isbnSuppression);
+                        try
+                        {
+                            Console.WriteLine("\nEntrez l'ISBN du livre à supprimer : ");
+                            int isbnSuppression = int.Parse(Console.ReadLine());
+                            bibliotheque.deleteBook(isbnSuppression);
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("Veuillez entrer un ISBN valide (un nombre entier).");
+                        }
                         break;
                     case "7":
                         if(bibliotheque.book.Count == 0)
@@ -101,8 +135,15 @@ namespace Gestion_Bibliotheque
                             break;
                         }
                         Console.WriteLine("\nEntrez l'ISBN du livre à emprunter : ");
-                        int isbnEmprunt = int.Parse(Console.ReadLine());
-                        bibliotheque.BorrowBook(isbnEmprunt);
+                        try
+                        {
+                            int isbnEmprunt = int.Parse(Console.ReadLine());
+                            bibliotheque.BorrowBook(isbnEmprunt);
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("Veuillez entrer un ISBN valide (un nombre entier).");
+                        }
                         break;
                     case "8":
                         if (bibliotheque.book.Count == 0)
@@ -111,8 +152,15 @@ namespace Gestion_Bibliotheque
                             break;
                         }
                         Console.WriteLine("\nEntrez l'ISBN du livre à retourner : ");
-                        int isbnRetour = int.Parse(Console.ReadLine());
-                        bibliotheque.returnBook(isbnRetour);
+                        try
+                        {
+                            int isbnRetour = int.Parse(Console.ReadLine());
+                            bibliotheque.returnBook(isbnRetour);
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("Veuillez entrer un ISBN valide (un nombre entier).");
+                        }
                         break;
                         case "9":
                               bibliotheque.bookAvailable();
